@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head> </head>
+  <body>
+    <div>
+      <p>
+        <span style="font-size: 18pt"
+          ><strong>Examples of Spacer Snippets</strong></span
+        >
+      </p>
+      <p></p>
+      <p><strong>utility_spacers_vertical</strong></p>
+      <p><code>{{{ snippet "utility_spacers_vertical" height }}}</code></p>
+      <p>A simple vertical spacer that adds height between elements.</p>
+      <p><strong>Variables:</strong></p>
+      <ol>
+        <li>height: Height in pixels</li>
+      </ol>
+      <p><strong>Usage:</strong></p>
+      <p><code>{{{ snippet "utility_spacers_vertical" '10' }}}</code></p>
+      <div></div>
+      <p><strong>utility_spacers_dividers</strong></p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacers_dividers" width borderTop borderBottom
+          paddingTop paddingBottom }}}</code
+        >
+      </p>
+      <p>
+        A horizontal divider with configurable borders and padding for visual
+        separation between content sections.
+      </p>
+      <p><strong>Variables:</strong></p>
+      <ol>
+        <li>width: Width in pixels</li>
+        <li>borderTop: Top border style (e.g., "3px solid #000000")</li>
+        <li>borderBottom: Bottom border style (e.g., "3px solid #000000")</li>
+        <li>paddingTop: Top padding in pixels</li>
+        <li>paddingBottom: Bottom padding in pixels</li>
+      </ol>
+      <p><strong>Usage:</strong></p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacers_dividers" '540' '3px solid #000000' '3px
+          solid #000000' '5' '7' }}}</code
+        >
+      </p>
+      <p></p>
+    </div>
+  </body>
+</html>
