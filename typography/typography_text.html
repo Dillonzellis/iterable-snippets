@@ -1,0 +1,43 @@
+<!-- helper snippet for all typography needs (headings, text, links) -->
+<!-- Parameters (in order): -->
+<!-- 1. alignment: text alignment (left, center, right) -->
+<!-- 2. fontSize: font size in px -->
+<!-- 3. lineHeight: line height in px -->
+<!-- 4. letterSpacing: letter spacing in em -->
+<!-- 5. fontWeight: weight of the font -->
+<!-- 6. fontFamily: font family -->
+<!-- 7. textTransform: text transformation (uppercase, lowercase, capitalize, none) -->
+<!-- 8. textColor: hex color code for text -->
+<!-- 9. paddingTop: padding top in px (optional) -->
+<!-- 10. paddingRight: padding right in px (optional) -->
+<!-- 11. paddingBottom: padding bottom in px (optional) -->
+<!-- 12. paddingLeft: padding left in px (optional) -->
+<!-- 13. isLink: boolean for if text should be wrapped in link -->
+<!-- 14. linkUrl: URL if isLink is true -->
+<!-- 15. isUnderlined: boolean for if link should be underlined -->
+<!-- 16. text: the text content -->
+
+<td
+  align="{{alignment}}"
+  style="
+    font-size: {{fontSize}}px;
+    line-height: {{lineHeight}}px;
+    letter-spacing: {{letterSpacing}}em;
+    font-weight: {{fontWeight}};
+    font-family: {{fontFamily}} !important;
+    text-transform: {{textTransform}};
+    color: {{textColor}};
+    padding: {{paddingTop}}px {{paddingRight}}px {{paddingBottom}}px {{paddingLeft}}px;
+  "
+>
+  {{#if isLink}}
+  <a
+    href="{{linkUrl}}"
+    rel="noopener"
+    style="text-decoration: {{#if isUnderlined}}underline{{else}}none{{/if}}; color: {{textColor}}"
+    target="_blank"
+  >
+    {{text}}
+  </a>
+  {{else}} {{text}} {{/if}}
+</td>
