@@ -1,19 +1,20 @@
+<!-- https://app.iterable.com/templates/snippet/276825/edit -->
+
 <!-- helper snippet to build image that can be wrapped in a link -->
 
 <!-- Variables: -->
 <!-- src: src for image tag -->
 <!-- imgUrl: link for image -->
-<!-- imgAlt: alt text for image -->
 <!-- width: width for image -->
 <!-- isLink: boolean for if image is wrapped in an a tag -->
 <!-- alignment: alignment of image; Options: left, center, right, defaults to center -->
+<!-- imgAlt: alt text for image -->
 
-{{#if isLink}}
 <td align="{{defaultIfEmpty alignment "center"}}">
+  {{#if isLink}}
   <a
-    href="{{#urlEncode}}{{url}}{{/urlEncode}}"
+    href="{{#urlEncode}}{{imgUrl}}{{/urlEncode}}"
     target="_blank"
-    style="display: block"
   >
     <img
       alt="{{imgAlt}}"
@@ -22,14 +23,12 @@
       style="display: block; width: 100%; max-width: {{width}}px;"
     />
   </a>
-</td>
-{{else}}
-<td align="{{defaultIfEmpty alignment "center"}}">
+  {{else}}
   <img
     alt="{{imgAlt}}"
     src="{{imgUrl}}"
     width="{{width}}"
     style="display: block; width: 100%; max-width: {{width}}px;"
   />
+  {{/if}}
 </td>
-{{/if}}
