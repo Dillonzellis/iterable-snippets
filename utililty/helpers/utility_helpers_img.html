@@ -2,28 +2,34 @@
 
 <!-- Variables: -->
 <!-- src: src for image tag -->
-<!-- logoUrl: link for image -->
+<!-- imgUrl: link for image -->
+<!-- imgAlt: alt text for image -->
 <!-- width: width for image -->
 <!-- isLink: boolean for if image is wrapped in an a tag -->
+<!-- alignment: alignment of image; Options: left, center, right, defaults to center -->
 
 {{#if isLink}}
-<a
-  href="{{#urlEncode}}{{url}}{{/urlEncode}}"
-  target="_blank"
-  style="display: block"
->
+<td align="{{defaultIfEmpty alignment "center"}}">
+  <a
+    href="{{#urlEncode}}{{url}}{{/urlEncode}}"
+    target="_blank"
+    style="display: block"
+  >
+    <img
+      alt="{{imgAlt}}"
+      src="{{src}}"
+      width="{{width}}"
+      style="display: block; width: 100%; max-width: {{width}}px;"
+    />
+  </a>
+</td>
+{{else}}
+<td align="{{defaultIfEmpty alignment "center"}}">
   <img
-    alt="{{logoAlt}}"
-    src="{{src}}"
+    alt="{{imgAlt}}"
+    src="{{imgUrl}}"
     width="{{width}}"
     style="display: block; width: 100%; max-width: {{width}}px;"
   />
-</a>
-{{else}}
-<img
-  alt="{{logoAlt}}"
-  src="{{logoUrl}}"
-  width="{{width}}"
-  style="display: block; width: 100%; max-width: {{width}}px;"
-/>
+</td>
 {{/if}}
