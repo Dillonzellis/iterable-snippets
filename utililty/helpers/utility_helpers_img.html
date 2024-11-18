@@ -1,0 +1,29 @@
+<!-- helper snippet to build image that can be wrapped in a link -->
+
+<!-- Variables: -->
+<!-- src: src for image tag -->
+<!-- logoUrl: link for image -->
+<!-- width: width for image -->
+<!-- isLink: boolean for if image is wrapped in an a tag -->
+
+{{#if isLink}}
+<a
+  href="{{#urlEncode}}{{url}}{{/urlEncode}}"
+  target="_blank"
+  style="display: block"
+>
+  <img
+    alt="{{logoAlt}}"
+    src="{{src}}"
+    width="{{width}}"
+    style="display: block; width: 100%; max-width: {{width}}px;"
+  />
+</a>
+{{else}}
+<img
+  alt="{{logoAlt}}"
+  src="{{logoUrl}}"
+  width="{{width}}"
+  style="display: block; width: 100%; max-width: {{width}}px;"
+/>
+{{/if}}
