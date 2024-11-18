@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head> </head>
+  <body>
+    <div>
+      <p>
+        <span style="font-size: 18pt"
+          ><strong>Examples of Typography Snippets</strong></span
+        >
+      </p>
+      <p></p>
+      <p><strong>typography_text</strong></p>
+      <p>
+        <code
+          >{{{ snippet "typography_text" alignment fontSize lineHeight
+          letterSpacing fontWeight fontFamily textTransform textColor paddingTop
+          paddingRight paddingBottom paddingLeft isLink linkUrl isUnderlined
+          text }}}</code
+        >
+      </p>
+      <p>
+        A comprehensive typography snippet for all text styling needs including
+        optional link wrapping.
+      </p>
+      <p><strong>Variables:</strong></p>
+      <ol>
+        <li>alignment: Text alignment (left, center, right)</li>
+        <li>fontSize: Font size in pixels</li>
+        <li>lineHeight: Line height in pixels</li>
+        <li>letterSpacing: Letter spacing in em</li>
+        <li>fontWeight: Weight of the font</li>
+        <li>fontFamily: Font family (include fallbacks)</li>
+        <li>
+          textTransform: Text transformation (uppercase, lowercase, capitalize,
+          none)
+        </li>
+        <li>textColor: Hex color code for text</li>
+        <li>paddingTop: Padding top in pixels</li>
+        <li>paddingRight: Padding right in pixels</li>
+        <li>paddingBottom: Padding bottom in pixels</li>
+        <li>paddingLeft: Padding left in pixels</li>
+        <li>isLink: Boolean for if text should be wrapped in link</li>
+        <li>linkUrl: URL if isLink is true</li>
+        <li>isUnderlined: Boolean for if link should be underlined</li>
+        <li>text: The text content to display</li>
+      </ol>
+      <p><strong>Usage:</strong></p>
+      <code
+        >{{{ snippet "typography_text" 'center' '45' '50' '0' '900' 'Arial'
+        'uppercase' '#004fff' '0' '0' '0' '0' '' '' 'false' 'Sample Text'
+        }}}</code
+      >
+    </div>
+  </body>
+</html>
