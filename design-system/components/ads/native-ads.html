@@ -1,0 +1,178 @@
+{{#assign "IMG_URL"}}{{/assign}} {{#assign "AUTHOR"}}{{/assign}} {{#assign
+"TITLE"}}{{/assign}} {{#assign "CONTENT"}}{{/assign}}
+
+<!-- Check Content Present in the standard feed -->
+{{#assign "content_present"}}[[FEED_OBJECT.item.title]]{{/assign}} {{#if
+content_present}} {{#assign
+"IMG_URL"}}[[FEED_OBJECT.item.media:content.url]]{{/assign}} {{#assign
+"AUTHOR"}}[[FEED_OBJECT.item.author]]{{/assign}} {{#assign
+"TITLE"}}[[FEED_OBJECT.item.title]]{{/assign}} {{#assign "CONTENT"}}
+[[{FEED_OBJECT.item.content:encoded}]] {{/assign}} {{else}}
+<!-- Check for subscription -->
+{{#assign "issubscriber"}}false{{/assign}} {{#each subscriptions}} {{#ifEq
+subscriber 1}} {{#assign "issubscriber"}}true{{/assign}} {{/ifEq}} {{/each}}
+<!-- If Subscriber -->
+{{#ifEq issubscriber "true"}} {{#assign
+"IMG_URL"}}[[DEFAULT_SUB_FEED_OBJECT.item.media:content.url]]{{/assign}}
+{{#assign "AUTHOR"}}[[DEFAULT_SUB_FEED_OBJECT.item.author]]{{/assign}} {{#assign
+"TITLE"}}[[DEFAULT_SUB_FEED_OBJECT.item.title]]{{/assign}} {{#assign "CONTENT"}}
+[[{DEFAULT_SUB_FEED_OBJECT.item.content:encoded}]] {{/assign}} {{else}}
+{{#assign "IMG_URL"}}[[DEFAULT_FEED_OBJECT.item.media:content.url]]{{/assign}}
+{{#assign "AUTHOR"}}[[DEFAULT_FEED_OBJECT.item.author]]{{/assign}} {{#assign
+"TITLE"}}[[DEFAULT_FEED_OBJECT.item.title]]{{/assign}} {{#assign "CONTENT"}}
+[[{DEFAULT_FEED_OBJECT.item.content:encoded}]] {{/assign}} {{/ifEq}} {{/if}}
+{{#if CONTENT}}
+
+<!-- 2024REBRANDING NEW DESIGN -->
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="150">
+  <tbody>
+    <tr>
+      <td align="center" height="25"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table
+  class="hund"
+  width="620"
+  border="0"
+  align="center"
+  cellpadding="0"
+  cellspacing="0"
+>
+  <tbody>
+    <tr>
+      <td class="pad-lr-10" align="center">
+        <table
+          width="540"
+          border="0"
+          align="center"
+          cellpadding="0"
+          cellspacing="0"
+          class="hund"
+        >
+          <tbody>
+            <tr>
+              <td
+                align="left"
+                style="
+                  font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial,
+                    sans-serif !important;
+                  font-size: 12px;
+                  line-height: 16px;
+                  font-weight: 700;
+                  color: #004fff;
+                  text-transform: uppercase;
+                  letter-spacing: 0em;
+                "
+              >
+                A message from {{{AUTHOR}}}
+              </td>
+            </tr>
+            <tr>
+              <td align="center" height="10"></td>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                bgcolor="#FFFFFF"
+                class="font25"
+                style="
+                  font-size: 30px;
+                  line-height: 40px;
+                  letter-spacing: 0em;
+                  font-weight: 900;
+                  font-family:
+                    Arial Black,
+                    Verdana,
+                    sans-serif !important;
+                  padding: 0px 0px 0px;
+                "
+              >
+                {{{TITLE}}}
+              </td>
+            </tr>
+            <tr>
+              <td align="center" height="20"></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" style="padding: 0px 0px 0px">
+        <img
+          src="{{{IMG_URL}}}"
+          alt=""
+          class="hund"
+          width="620"
+          style="border: none; display: block"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td class="pad-lr-10" align="center">
+        <table
+          width="540"
+          border="0"
+          align="center"
+          cellpadding="0"
+          cellspacing="0"
+          class="hund"
+          style="
+            font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial,
+              sans-serif !important;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #000000;
+            letter-spacing: 0em;
+          "
+        >
+          <tbody>
+            <tr>
+              <td align="center" height="10"></td>
+            </tr>
+            <tr>
+              <td
+                align="left"
+                style="
+                  font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial,
+                    sans-serif !important;
+                  font-size: 16px;
+                  line-height: 24px;
+                  font-weight: 400;
+                  color: #000000;
+                  letter-spacing: 0em;
+                "
+              >
+                <p
+                  style="
+                    font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial,
+                      sans-serif !important;
+                    font-size: 16px;
+                    line-height: 24px;
+                    font-weight: 400;
+                    color: #000000;
+                    letter-spacing: 0em;
+                  "
+                >
+                  {{{CONTENT}}}
+                </p>
+                <!--<p><span style="color:#000000; text-decoration:none"><u><a href="https://www.ajc.com/life/radiotvtalk-blog/andre-3000-has-longest-song-ever-on-billboards-hot-100/T5QXXVR24VECRMYWYVT4HOMLNA/" rel="noopener" target="_blank" style="color:#000000; text-decoration:underline; font-weight:bold">Exercitation
+ ullamco. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempo incididunt ut labore et dolore
+</a></u></span></p> -->
+              </td>
+            </tr>
+            <tr>
+              <td align="center" height="20"></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{{/if}}
