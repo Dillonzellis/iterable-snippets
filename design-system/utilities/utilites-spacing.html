@@ -7,35 +7,20 @@
 <!-- 5. paddingTop: padding top in px (optional) -->
 <!-- 6. paddingBottom: padding bottom in px (optional) -->
 
-<td>
-  <table
-    align="center"
-    border="0"
-    cellpadding="0"
-    cellspacing="0"
-    role="presentation"
+<table>
+<tr style="{{#if height}}height: {{height}}px;{{/if}}">
+  <td
+    {{#if height}}height="{{height}}"{{/if}}
     style="
-      width: {{#if width}}{{width}}px{{else}}100%{{/if}};
-      margin: 0 auto;
+    font-weight: 400;
+    text-align: left;
+    {{#if borderTop}}border-top: {{borderTop}};{{/if}}
+    {{#if borderBottom}}border-bottom: {{borderBottom}};{{/if}}
+    {{#if paddingTop}}padding-top: {{paddingTop}}px;{{/if}}
+    {{#if paddingBottom}}padding-bottom: {{paddingBottom}}px;{{/if}}
+    vertical-align: top;
     "
-    {{#if width}}width="{{width}}"{{/if}}
-  >
-    <tbody>
-      <tr style="{{#if height}}height: {{height}}px;{{/if}}">
-        <td
-          {{#if height}}height="{{height}}"{{/if}}
-          style="
-            font-weight: 400;
-            text-align: left;
-            {{#if borderTop}}border-top: {{borderTop}};{{/if}}
-            {{#if borderBottom}}border-bottom: {{borderBottom}};{{/if}}
-            {{#if paddingTop}}padding-top: {{paddingTop}}px;{{/if}}
-            {{#if paddingBottom}}padding-bottom: {{paddingBottom}}px;{{/if}}
-            vertical-align: top;
-          "
-          width="100%"
-        ></td>
-      </tr>
-    </tbody>
-  </table>
-</td>
+    width="100%"
+  ></td>
+</tr>
+<table>
