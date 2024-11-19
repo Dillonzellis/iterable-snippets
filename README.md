@@ -5,7 +5,7 @@
 1. [Folder Structure](#folder-structure)
 2. [Naming Conventions](#naming-conventions)
 3. [Best Practices](#best-practices)
-4. [Snippet Creation Guide](#snippet-creation-guide)
+4. [Template Creation Guide](#template-creation-guide)
 5. [Validation Checklist](#validation-checklist)
 
 ## Folder Structure
@@ -13,82 +13,81 @@
 ### Root Organization
 
 ```
-Templates/
-└── Newsletter_Modular/
-    ├── Config/
-    ├── Snippets/
-    ├── Newsletter Specific/
-    ├── Temporary/
-    └── Archive/
+newsletter-modular/
+├── archive/
+├── builds/
+│   ├── am-atl/
+│   ├── politics-pm/
+│   ├── sports-daily/
+│   └── uatl/
+├── design-system/
+└── temporary/
 ```
 
-### Snippets Directory Structure
+### Design System Structure
 
 ```
-Snippets/
-├── Styles/
-│   ├── Base Styles
-│   ├── Branding Colors
-│   └── Layouts/
-├── Content-Blocks/
-├── Components/
-│   ├── Headers
-│   ├── Footers
-│   ├── Ads
-│   └── Interactive
-├── Typography/
-├── Utility/
-└── Helpers/
+design-system/
+├── base-styles.html
+├── components/
+│   ├── components-ads.html
+│   ├── components-feeds.html
+│   ├── components-footers.html
+│   ├── components-headers.html
+│   ├── components-showcase.html
+│   └── components-text.html
+└── utilities/
+    ├── utilities-date.html
+    ├── utilities-images.html
+    ├── utilities-journalist.html
+    ├── utilities-showcase.html
+    ├── utilities-spacing.html
+    └── utilities-unengaged.html
 ```
 
 ### Purpose of Each Directory
 
 #### Core Directories
 
-- **Config**: Global configuration and variables
-- **Snippets**: Reusable components and layouts
-- **Newsletter Specific**: Custom implementations for individual newsletters
-- **Temporary**: Testing and development files
-- **Archive**: Deprecated or seasonal content
+- **archive**: Storage for deprecated templates and snippets
+- **builds**: Newsletter-specific implementations and campaigns
+- **design-system**: Reusable components and base styles
+- **temporary**: Development and testing files
 
-#### Snippet Categories
+#### Build Categories
 
-- **Styles**: Base styling, branding, and layout frameworks
-- **Content-Blocks**: Major content section templates
-- **Components**: Standalone, reusable UI elements
-- **Typography**: Text styling and formatting
-- **Utility**: Helper classes and common utilities
-- **Helpers**: Building blocks for larger snippets
+- **campaigns**: Active newsletter templates
+- **blocks**: Newsletter-specific components
+- **core**: Essential newsletter elements
 
 ## Naming Conventions
 
 ### Basic Rules
 
-1. Use underscores to separate hierarchical elements
+1. Use hyphens to separate elements
 2. Use lowercase for all names
-3. Mirror the folder structure in the name
+3. Start with category prefix
 4. Be descriptive but concise
 
 ### Pattern
 
 ```
-[category]_[subcategory]_[element]
+[category]-[subcategory]-[element]
 ```
 
 ### Examples
 
-- `components_header_main`
-- `typography_heading_h1`
-- `utility_divider_horizontal`
-- `styles_layout_2column`
+- `components-headers`
+- `utilities-journalist`
+- `sports-daily-header`
 
 ### Versioning (When Necessary)
 
 ```
-[standard_name]_v[version_number]
+[standard-name]-v[version_number]
 ```
 
-Example: `components_header_v2`
+Example: `sports-daily-header-v1`
 
 ## Best Practices
 
@@ -96,128 +95,113 @@ Example: `components_header_v2`
 
 1. **Prioritize Reusability**
 
-   - Use Iterable Variables for customizable elements
-   - Implement conditional rendering for variations
-   - Keep snippets modular and single-purpose
+   - Use conditional rendering over versioning
+   - Keep snippets flexible through variables
+   - Implement modular design
 
 2. **Documentation**
 
-   - Include clear descriptions for each snippet
-   - Document all available variables and options
+   - Include clear descriptions
+   - Document all available parameters
    - Provide usage examples
 
 3. **Maintenance**
-   - Avoid creating duplicate snippets
-   - Use versioning only when necessary
-   - Move deprecated snippets to Archive folder
+   - Archive unused versions
+   - Avoid duplicate snippets
+   - Use semantic naming for special cases
 
-### Variable Usage
+### Workflow Guidelines
 
-```handlebars
-{{#ifMatchesRegexStr newsletter "pattern"}}
-  <div>Conditional Content</div>
-{{/ifMatchesRegexStr}}
+1. Start with existing templates when possible
+2. Reference design system components
+3. Copy base styles for new templates
+4. Use conditional logic for variations
+5. Archive outdated versions
 
-{{#assign "variableName"}}content{{/assign}}
-```
+## Template Creation Guide
 
-## Snippet Creation Guide
+### Steps for Creating New Templates
 
-### Steps for Creating New Snippets
+1. Check `builds` folder for similar templates
+2. Start from base template or copy existing
+3. Import required design system components
+4. Add newsletter-specific customizations
+5. Test with various content scenarios
 
-1. Check existing snippets for similar functionality
-2. Determine appropriate category and naming
-3. Create snippet with proper documentation
-4. Test across different newsletter types
-5. Add usage examples to Main-All-Snippets-Example
-
-### Documentation Template
+### Documentation Example
 
 ```
 Description:
-[Brief description of snippet purpose]
+[Purpose of the template/snippet]
 
-Variables:
-- [variableName]: [description] (required/optional)
-- [variableName]: [description] (required/optional)
+Parameters:
+- [paramName]: [description] (required/optional)
+- [paramName]: [description] (required/optional)
 
-Usage Examples:
-[Include common implementation examples]
+Usage:
+[Implementation examples]
 
 Notes:
-[Any additional information or special considerations]
+[Additional information]
 ```
 
 ## Validation Checklist
 
 ### Pre-Creation
 
-- [ ] Verified no existing snippet serves the same purpose
-- [ ] Identified appropriate category and subcategory
-- [ ] Planned for potential variations and use cases
-- [ ] Determined required variables and options
+- [ ] Verified no existing template serves the same purpose
+- [ ] Identified appropriate location in builds folder
+- [ ] Planned for variations and use cases
+- [ ] Determined required components and utilities
 
 ### Implementation
 
 - [ ] Follows naming convention
-- [ ] Uses proper variable structure
+- [ ] Uses base styles appropriately
 - [ ] Implements conditional rendering where needed
-- [ ] Includes responsive design considerations
-- [ ] Tested across email clients
+- [ ] Includes all required snippets
+- [ ] Tested with sample content
 
 ### Documentation
 
 - [ ] Clear description provided
-- [ ] All variables documented
+- [ ] All parameters documented
 - [ ] Usage examples included
-- [ ] Edge cases and limitations noted
-- [ ] Added to Main-All-Snippets-Example if applicable
-
-### Quality Assurance
-
-- [ ] Tested in all target newsletters
-- [ ] Validated HTML structure
-- [ ] Checked for accessibility compliance
-- [ ] Verified responsive behavior
-- [ ] Reviewed by team member
+- [ ] Limitations noted
+- [ ] Added to relevant campaign folder
 
 ### Maintenance
 
-- [ ] Added to version control (if applicable)
-- [ ] Old versions properly archived
-- [ ] Updated main documentation
-- [ ] Team notified of new snippet availability
+- [ ] Versioned if necessary
+- [ ] Old versions archived
+- [ ] Updated folder structure
+- [ ] Team notified of new template
 
 ## Quick Reference
 
-### Common Variables
+### Common Folder Paths
 
-```handlebars
-{{newsletter}}
-- Newsletter identifier
-{{section}}
-- Content section
-{{theme}}
-- Visual theme
-{{layout}}
-- Layout type
+```
+# New campaign template
+builds/[newsletter]/campaigns/
+
+# Newsletter-specific blocks
+builds/[newsletter]/blocks/
+
+# Reusable components
+design-system/components/
+
+# Utility snippets
+design-system/utilities/
 ```
 
-### Frequent Patterns
+### Versioning Notes
 
-```handlebars
-<!-- Newsletter-specific content -->
-{{#ifMatchesRegexStr newsletter "AM"}}
-  <div>AM Newsletter Content</div>
-{{/ifMatchesRegexStr}}
+```
+# Avoid when possible, use conditional rendering instead
+sports-daily-header-v1
+sports-daily-header-braves-playoffs
 
-<!-- Theme variations -->
-{{#ifMatchesRegexStr theme "dark"}}
-  <div class="dark-theme">...</div>
-{{/ifMatchesRegexStr}}
-
-<!-- Layout options -->
-{{#ifMatchesRegexStr layout "2col"}}
-  <div class="two-column">...</div>
-{{/ifMatchesRegexStr}}
+# Preferred approach
+components-headers.html with conditional logic
 ```
