@@ -2,11 +2,32 @@
 
 ## Table of Contents
 
-1. [Folder Structure](#folder-structure)
-2. [Naming Conventions](#naming-conventions)
-3. [Best Practices](#best-practices)
-4. [Template Creation Guide](#template-creation-guide)
-5. [Validation Checklist](#validation-checklist)
+1. [Overview and Goals](#overview-and-goals)
+2. [Folder Structure](#folder-structure)
+3. [Naming Conventions](#naming-conventions)
+4. [Snippet System](#snippet-system)
+5. [Workflow Guide](#workflow-guide)
+6. [Best Practices](#best-practices)
+7. [Validation Checklist](#validation-checklist)
+
+## Overview and Goals
+
+### Key Objectives
+
+- Create reusable snippets across multiple newsletters
+- Provide flexible components through Iterable's "Variables"
+- Enable easy discovery of snippets and templates
+- Maintain consistent naming and organization
+- Prevent regression issues through conditional rendering
+
+### Discovery Methods
+
+Editorial staff can find snippets through two primary methods:
+
+1. **Direct Search**: Using the naming convention to search for specific snippets
+2. **Template Browse**: Exploring template folders to see grouped snippets in context
+
+For example, browsing `design-system > components > components-headers` shows all header snippets and their implementations, helping editors understand available options without diving into HTML.
 
 ## Folder Structure
 
@@ -17,35 +38,52 @@ newsletter-modular/
 ├── archive/
 ├── builds/
 │   ├── am-atl/
+│   │   ├── blocks/
+│   │   └── campaigns/
+│   │       └── am-atl-base.html
 │   ├── politics-pm/
+│   │   ├── blocks/
+│   │   │   └── politics-pm-header.html
+│   │   └── campaigns/
+│   │       └── politics-pm-base.html
 │   ├── sports-daily/
+│   │   ├── blocks/
+│   │   │   └── sports-daily-header.html
+│   │   └── campaigns/
+│   │       └── sports-daily-base.html
 │   └── uatl/
+│       ├── campaigns/
+│       └── core/
 ├── design-system/
+│   ├── base-styles.html
+│   ├── components/
+│   │   ├── components-ads.html
+│   │   ├── components-feeds.html
+│   │   ├── components-footers.html
+│   │   ├── components-headers.html
+│   │   ├── components-showcase.html
+│   │   └── components-text.html
+│   └── utilities/
+│       ├── utilities-date.html
+│       ├── utilities-images.html
+│       ├── utilities-journalist.html
+│       ├── utilities-showcase.html
+│       ├── utilities-spacing.html
+│       └── utilities-unengaged.html
 └── temporary/
 ```
 
-### Design System Structure
+### Campaigns Structure
 
 ```
-design-system/
-├── base-styles.html
-├── components/
-│   ├── components-ads.html
-│   ├── components-feeds.html
-│   ├── components-footers.html
-│   ├── components-headers.html
-│   ├── components-showcase.html
-│   └── components-text.html
-└── utilities/
-    ├── utilities-date.html
-    ├── utilities-images.html
-    ├── utilities-journalist.html
-    ├── utilities-showcase.html
-    ├── utilities-spacing.html
-    └── utilities-unengaged.html
+newsletter-modular-campaigns/
+├── am-atl/
+├── politics-pm/
+├── sports-daily/
+└── uatl/
 ```
 
-### Purpose of Each Directory
+### Directory Purposes
 
 #### Core Directories
 
@@ -54,11 +92,26 @@ design-system/
 - **design-system**: Reusable components and base styles
 - **temporary**: Development and testing files
 
-#### Build Categories
+## Snippet System
 
-- **campaigns**: Active newsletter templates
-- **blocks**: Newsletter-specific components
-- **core**: Essential newsletter elements
+### Organization Strategy
+
+Since Iterable doesn't support folders in the Snippets section, we've implemented snippet folders within the Templates section to:
+
+- Group related snippets
+- Showcase example implementations
+- Demonstrate best practices
+- Provide visual reference for snippet options
+
+### Snippet Documentation
+
+Each snippet includes:
+
+- Detailed description of functionality
+- Usage instructions
+- Available parameters
+- Examples of implementation
+- Flexibility options through Variables
 
 ## Naming Conventions
 
@@ -67,27 +120,50 @@ design-system/
 1. Use hyphens to separate elements
 2. Use lowercase for all names
 3. Start with category prefix
-4. Be descriptive but concise
+4. Mirror template folder structure in snippet names
 
-### Pattern
-
-```
-[category]-[subcategory]-[element]
-```
-
-### Examples
+### Pattern Examples
 
 - `components-headers`
 - `utilities-journalist`
-- `sports-daily-header`
+- `sports-daily-[element]`
 
-### Versioning (When Necessary)
+### Versioning Guidelines
 
-```
-[standard-name]-v[version_number]
-```
+Versioning should be avoided when possible, preferring conditional rendering. When necessary:
 
-Example: `sports-daily-header-v1`
+- Standard version: `sports-daily-header-v1`
+- Semantic version: `sports-daily-header-braves-playoffs`
+
+## Workflow Guide
+
+### Creating New Templates
+
+1. **Start Location**:
+
+   - Build in `newsletter-modular > builds > [newsletter] > campaigns`
+   - Copy existing template when possible
+   - Use base template if starting fresh
+
+2. **From Scratch Process**:
+   - Copy base-styles from `newsletter-modular > design-system > base-styles`
+   - Reference snippet templates for components
+   - Import needed snippets with parameters
+   - Add new conditional logic as needed
+
+### Modifying Snippets
+
+1. **Adding Features**:
+
+   - Prefer adding if/else clauses to existing snippets
+   - Avoid regression issues through conditional logic
+   - Test thoroughly with existing implementations
+
+2. **Major Changes**:
+   - Create new version if changes affect existing uses
+   - Place original in archive after deprecation
+   - Create clean new version without version numbers
+   - Document changes and migration path
 
 ## Best Practices
 
@@ -110,40 +186,12 @@ Example: `sports-daily-header-v1`
    - Avoid duplicate snippets
    - Use semantic naming for special cases
 
-### Workflow Guidelines
+### Version Control
 
-1. Start with existing templates when possible
-2. Reference design system components
-3. Copy base styles for new templates
-4. Use conditional logic for variations
-5. Archive outdated versions
-
-## Template Creation Guide
-
-### Steps for Creating New Templates
-
-1. Check `builds` folder for similar templates
-2. Start from base template or copy existing
-3. Import required design system components
-4. Add newsletter-specific customizations
-5. Test with various content scenarios
-
-### Documentation Example
-
-```
-Description:
-[Purpose of the template/snippet]
-
-Parameters:
-- [paramName]: [description] (required/optional)
-- [paramName]: [description] (required/optional)
-
-Usage:
-[Implementation examples]
-
-Notes:
-[Additional information]
-```
+- Avoid versioning when possible
+- Use conditional rendering for variations
+- Create semantic names for special cases
+- Archive deprecated versions promptly
 
 ## Validation Checklist
 
@@ -179,7 +227,7 @@ Notes:
 
 ## Quick Reference
 
-### Common Folder Paths
+### Common Paths
 
 ```
 # New campaign template
@@ -195,13 +243,18 @@ design-system/components/
 design-system/utilities/
 ```
 
-### Versioning Notes
+### Naming Examples
 
 ```
-# Avoid when possible, use conditional rendering instead
-sports-daily-header-v1
-sports-daily-header-braves-playoffs
+# Components
+components-headers
+components-footers
 
-# Preferred approach
-components-headers.html with conditional logic
+# Utilities
+utilities-journalist
+utilities-spacing
+
+# Newsletter-specific
+sports-daily-header
+politics-pm-footer
 ```
