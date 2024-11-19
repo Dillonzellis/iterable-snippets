@@ -8,26 +8,20 @@
 <!-- alignment: alignment of image; Options: left, center, right, defaults to center -->
 <!-- imgAlt: alt text for image -->
 
-
-<td align="{{defaultIfEmpty alignment "center"}}">
-  {{#if isLink}}
-  <a
-    href="{{imgUrl}}"
-    target="_blank"
-  >
-    <img
-      alt="{{imgAlt}}"
-      src="{{src}}"
-      width="{{width}}"
-      style="display: block; width: 100%; max-width: {{width}}px;"
-    />
-  </a>
-  {{else}}
+{{#if isLink}}
+<a href="{{imgUrl}}" target="_blank">
   <img
     alt="{{imgAlt}}"
-    src="{{imgUrl}}"
+    src="{{src}}"
     width="{{width}}"
     style="display: block; width: 100%; max-width: {{width}}px;"
   />
-  {{/if}}
-</td>
+</a>
+{{else}}
+<img
+  alt="{{imgAlt}}"
+  src="{{imgUrl}}"
+  width="{{width}}"
+  style="display: block; width: 100%; max-width: {{width}}px;"
+/>
+{{/if}}
