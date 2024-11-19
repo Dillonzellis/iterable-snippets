@@ -1,0 +1,123 @@
+<!-- FIX -->
+
+<!doctype html>
+<html>
+  <head> </head>
+  <body>
+    <div>
+      <p>
+        <span style="font-size: 18pt"
+          ><strong>Examples of Spacer Snippets</strong></span
+        >
+      </p>
+      <p></p>
+      <p><strong>utility_spacers_vertical</strong></p>
+      <p><code>{{{ snippet "utility_spacers_vertical" height }}}</code></p>
+      <p>A simple vertical spacer that adds height between elements.</p>
+      <p><strong>Variables:</strong></p>
+      <ol>
+        <li>height: Height in pixels</li>
+      </ol>
+      <p><strong>Usage:</strong></p>
+      <p><code>{{{ snippet "utility_spacers_vertical" '10' }}}</code></p>
+      <div></div>
+      <p><strong>utility_spacers_dividers</strong></p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacers_dividers" width borderTop borderBottom
+          paddingTop paddingBottom }}}</code
+        >
+      </p>
+      <p>
+        A horizontal divider with configurable borders and padding for visual
+        separation between content sections.
+      </p>
+      <p><strong>Variables:</strong></p>
+      <ol>
+        <li>width: Width in pixels</li>
+        <li>borderTop: Top border style (e.g., "3px solid #000000")</li>
+        <li>borderBottom: Bottom border style (e.g., "3px solid #000000")</li>
+        <li>paddingTop: Top padding in pixels</li>
+        <li>paddingBottom: Bottom padding in pixels</li>
+      </ol>
+      <p><strong>Usage:</strong></p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacers_dividers" '540' '3px solid #000000' '3px
+          solid #000000' '5' '7' }}}</code
+        >
+      </p>
+      <p></p>
+      <p>
+        <span style="font-size: 18pt"
+          ><strong>Unified Spacing Component</strong></span
+        >
+      </p>
+      <p></p>
+      <p><strong>utility_spacing</strong></p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacing" height width borderTop borderBottom
+          paddingTop paddingBottom }}}</code
+        >
+      </p>
+      <p>
+        A flexible spacing component that can create both vertical spaces and
+        dividers with configurable borders.
+      </p>
+      <p><strong>Variables:</strong></p>
+      <ol>
+        <li>height: Height in pixels (optional)</li>
+        <li>width: Width in pixels (optional, defaults to 100%)</li>
+        <li>
+          borderTop: Top border style (optional, e.g., "3px solid #000000")
+        </li>
+        <li>
+          borderBottom: Bottom border style (optional, e.g., "3px solid
+          #000000")
+        </li>
+        <li>paddingTop: Top padding in pixels (optional)</li>
+        <li>paddingBottom: Bottom padding in pixels (optional)</li>
+      </ol>
+      <p><strong>Usage Examples:</strong></p>
+      <p>Simple vertical spacer:</p>
+      <p><code>{{{ snippet "utility_spacing" '20' }}}</code></p>
+      <p>Double-bordered divider:</p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacing" '' '540' '3px solid #000000' '3px solid
+          #000000' '10' '10' }}}</code
+        >
+      </p>
+      <p>Single top border with spacing:</p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacing" '30' '' '1px solid #CCCCCC' '' '15'
+          }}}</code
+        >
+      </p>
+      <p>Custom width divider:</p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacing" '' '200' '2px dashed #999999' '' '5'
+          '5' }}}</code
+        >
+      </p>
+      <p>Large spacing with bottom border:</p>
+      <p>
+        <code
+          >{{{ snippet "utility_spacing" '50' '' '' '1px solid #EEEEEE' '' '20'
+          }}}</code
+        >
+      </p>
+      <p></p>
+      <p><strong>Notes:</strong></p>
+      <ul>
+        <li>All parameters are optional</li>
+        <li>Width defaults to 100% if not specified</li>
+        <li>Can be used for both spacing and dividers</li>
+        <li>Email-client safe with table-based structure</li>
+      </ul>
+    </div>
+  </body>
+</html>

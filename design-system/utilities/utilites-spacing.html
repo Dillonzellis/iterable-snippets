@@ -1,0 +1,42 @@
+
+<!-- Unified Spacing Component -->
+<!-- Parameters: -->
+<!-- 1. height: height/spacing in px -->
+<!-- 2. width: width in px (optional, defaults to 100%) -->
+<!-- 3. borderTop: border top style (optional) -->
+<!-- 4. borderBottom: border bottom style (optional) -->
+<!-- 5. paddingTop: padding top in px (optional) -->
+<!-- 6. paddingBottom: padding bottom in px (optional) -->
+
+<td>
+  <table
+    align="center"
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    role="presentation"
+    style="
+      width: {{#if width}}{{width}}px{{else}}100%{{/if}};
+      margin: 0 auto;
+    "
+    {{#if width}}width="{{width}}"{{/if}}
+  >
+    <tbody>
+      <tr style="{{#if height}}height: {{height}}px;{{/if}}">
+        <td
+          {{#if height}}height="{{height}}"{{/if}}
+          style="
+            font-weight: 400;
+            text-align: left;
+            {{#if borderTop}}border-top: {{borderTop}};{{/if}}
+            {{#if borderBottom}}border-bottom: {{borderBottom}};{{/if}}
+            {{#if paddingTop}}padding-top: {{paddingTop}}px;{{/if}}
+            {{#if paddingBottom}}padding-bottom: {{paddingBottom}}px;{{/if}}
+            vertical-align: top;
+          "
+          width="100%"
+        ></td>
+      </tr>
+    </tbody>
+  </table>
+</td>
