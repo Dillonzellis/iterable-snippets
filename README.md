@@ -2,13 +2,46 @@
 
 ## Table of Contents
 
-1. [Overview and Goals](#overview-and-goals)
-2. [Folder Structure](#folder-structure)
-3. [Naming Conventions](#naming-conventions)
-4. [Snippet System](#snippet-system)
-5. [Workflow Guide](#workflow-guide)
-6. [Best Practices](#best-practices)
-7. [Validation Checklist](#validation-checklist)
+1. [Quick Reference](#quick-reference)
+2. [Overview and Goals](#overview-and-goals)
+3. [Folder Structure](#folder-structure)
+4. [Naming Conventions](#naming-conventions)
+5. [Snippet System](#snippet-system)
+6. [Workflow Guide](#workflow-guide)
+
+## Quick Reference
+
+### Common Paths
+
+```
+# New campaign template
+builds/[newsletter]/campaigns/
+
+# Newsletter-specific blocks
+builds/[newsletter]/blocks/
+
+# Reusable components
+design-system/components/
+
+# Utility snippets
+design-system/utilities/
+```
+
+### Naming Examples
+
+```
+# Components
+components-headers
+components-footers
+
+# Utilities
+utilities-journalist
+utilities-spacing
+
+# Newsletter-specific
+sports-daily-header
+politics-pm-footer
+```
 
 ## Overview and Goals
 
@@ -31,7 +64,7 @@ For example, browsing `design-system > components > components-headers` shows al
 
 ## Folder Structure
 
-### Root Organization
+### Template Organization
 
 ```
 newsletter-modular/
@@ -83,9 +116,7 @@ newsletter-modular-campaigns/
 └── uatl/
 ```
 
-### Directory Purposes
-
-#### Core Directories
+### Folder Purposes
 
 - **archive**: Storage for deprecated templates and snippets
 - **builds**: Newsletter-specific implementations and campaigns
@@ -102,16 +133,6 @@ Since Iterable doesn't support folders in the Snippets section, we've implemente
 - Showcase example implementations
 - Demonstrate best practices
 - Provide visual reference for snippet options
-
-### Snippet Documentation
-
-Each snippet includes:
-
-- Detailed description of functionality
-- Usage instructions
-- Available parameters
-- Examples of implementation
-- Flexibility options through Variables
 
 ## Naming Conventions
 
@@ -157,34 +178,11 @@ Versioning should be avoided when possible, preferring conditional rendering. Wh
 
    - Prefer adding if/else clauses to existing snippets
    - Avoid regression issues through conditional logic
-   - Test thoroughly with existing implementations
 
 2. **Major Changes**:
    - Create new version if changes affect existing uses
    - Place original in archive after deprecation
    - Create clean new version without version numbers
-   - Document changes and migration path
-
-## Best Practices
-
-### Snippet Development
-
-1. **Prioritize Reusability**
-
-   - Use conditional rendering over versioning
-   - Keep snippets flexible through variables
-   - Implement modular design
-
-2. **Documentation**
-
-   - Include clear descriptions
-   - Document all available parameters
-   - Provide usage examples
-
-3. **Maintenance**
-   - Archive unused versions
-   - Avoid duplicate snippets
-   - Use semantic naming for special cases
 
 ### Version Control
 
@@ -192,69 +190,3 @@ Versioning should be avoided when possible, preferring conditional rendering. Wh
 - Use conditional rendering for variations
 - Create semantic names for special cases
 - Archive deprecated versions promptly
-
-## Validation Checklist
-
-### Pre-Creation
-
-- [ ] Verified no existing template serves the same purpose
-- [ ] Identified appropriate location in builds folder
-- [ ] Planned for variations and use cases
-- [ ] Determined required components and utilities
-
-### Implementation
-
-- [ ] Follows naming convention
-- [ ] Uses base styles appropriately
-- [ ] Implements conditional rendering where needed
-- [ ] Includes all required snippets
-- [ ] Tested with sample content
-
-### Documentation
-
-- [ ] Clear description provided
-- [ ] All parameters documented
-- [ ] Usage examples included
-- [ ] Limitations noted
-- [ ] Added to relevant campaign folder
-
-### Maintenance
-
-- [ ] Versioned if necessary
-- [ ] Old versions archived
-- [ ] Updated folder structure
-- [ ] Team notified of new template
-
-## Quick Reference
-
-### Common Paths
-
-```
-# New campaign template
-builds/[newsletter]/campaigns/
-
-# Newsletter-specific blocks
-builds/[newsletter]/blocks/
-
-# Reusable components
-design-system/components/
-
-# Utility snippets
-design-system/utilities/
-```
-
-### Naming Examples
-
-```
-# Components
-components-headers
-components-footers
-
-# Utilities
-utilities-journalist
-utilities-spacing
-
-# Newsletter-specific
-sports-daily-header
-politics-pm-footer
-```
