@@ -1,0 +1,20 @@
+<!-- Political Newsletter -->
+{{#ifMatchesRegexStr newsletter "[Pp]olitical"}}
+<!-- -->
+{{{ snippet "newsletter_specific_political_footer" }}}
+<!-- -->
+{{/ifMatchesRegexStr}}
+
+<!-- AM ATL Newsletter -->
+{{#ifMatchesRegexStr newsletter "[Aa][Mm]"}}
+<div>AM</div>
+{{/ifMatchesRegexStr}}
+
+<!-- Sports Daily Newsletter -->
+{{#ifMatchesRegexStr newsletter "[sS]ports [dD]aily"}}
+<div>
+  <img
+    src="https://library.iterable.com/1840/7019/6529cba0f1ac43ad9d0496c421f343ca-a-m-atl-header-desk-v-23x.png"
+  />
+</div>
+{{/ifMatchesRegexStr}}
